@@ -7,6 +7,7 @@ package sort;
 public class HeapSort {
 	public static void main(String[] args) {
 		int A[] = new int[] { 3, 8, 7, 4, 5, 11, 15, 55, 2, 1, 112, -1, -2, -3 };
+		// 初始化，建立一个最大堆
 		HeapSort.buildheap(A);
 		// 最大值交换到尾部，同时需要调整的堆大小减去1
 		for (int i = A.length - 1; i > 0; i--) {
