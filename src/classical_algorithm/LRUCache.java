@@ -114,8 +114,17 @@ public class LRUCache {
 		node.prev = last;
 		if (last == null)
 			last = first;
-		else{
+		else {
 			last.next = node;
 		}
+	}
+
+	/*
+	 * Çå¿Õ»º´æ
+	 */
+	public void clear() {
+		first = null;
+		last = null;
+		currentSize = 0;
 	}
 }

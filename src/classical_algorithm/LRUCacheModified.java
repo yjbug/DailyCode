@@ -123,6 +123,15 @@ public class LRUCacheModified {
 		if (hotFirst.prev != null) {
 			hotFirst.prev.next = node;
 		}
+
+		if (node == coldLast) {
+			coldLast = coldLast.prev;
+		} else if (node == coldFirst) {
+			coldFirst = coldFirst.next;
+		} else if (node == hotFirst) {
+			return;
+		}
+
 		node.next = hotFirst;
 		node.prev = hotFirst.prev;
 		hotFirst.prev = node;
