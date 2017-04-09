@@ -1,13 +1,7 @@
 package classical_algorithm;
 
 import java.util.HashMap;
-
-class Entry {
-	Entry prev;// 前一节点
-	Entry next;// 后一节点
-	Object value;// 值
-	Object key;// 键
-}
+import tools.Entry;
 
 /**
  * Least recently used 算法根据数据的历史访问记录来进行淘汰数据，其核心思想是“如果数据最近被访问过，那么将来被访问的几率也更高”。
@@ -28,22 +22,22 @@ class Entry {
  */
 public class LRUCache {
 	private int cacheSize;
-	private HashMap<Object, Entry> nodes;// 缓存容器
+	private HashMap<Object, Entry<Object, Object>> nodes;// 缓存容器
 	private int currentSize;
-	private Entry first;// 链表头
-	private Entry last;// 链表尾
+	private Entry<Object, Object> first;// 链表头
+	private Entry<Object, Object> last;// 链表尾
 
 	public LRUCache(int i) {
 		currentSize = 0;
 		cacheSize = i;
-		nodes = new HashMap<Object, Entry>(i);// 缓存容器
+		nodes = new HashMap<Object, Entry<Object, Object>>(i);// 缓存容器
 	}
 
 	/**
 	 * 获取缓存中对象,并把它放在最前面
 	 */
-	public Entry get(Object key) {
-		Entry node = nodes.get(key);
+	public Entry<Object, Object> get(Object key) {
+		Entry<Object, Object> node = nodes.get(key);
 		if (node != null) {
 			moveToHead(node);
 			return node;
@@ -57,7 +51,7 @@ public class LRUCache {
 	 */
 	public void put(Object key, Object value) {
 		// 先查看HashMap是否存在该entry, 如果存在，则只更新其value
-		Entry node = nodes.get(key);
+		Entry<Object, Object> node = nodes.get(key);
 
 		if (node == null) {
 			// 缓存容器是否已经超过大小.
@@ -68,7 +62,7 @@ public class LRUCache {
 			} else {
 				currentSize++;
 			}
-			node = new Entry();
+			node = new Entry<Object, Object>();
 		}
 		node.value = value;
 		node.key = key;
@@ -94,7 +88,7 @@ public class LRUCache {
 	/**
 	 * 移动到链表头，表示这个节点是最新使用过的
 	 */
-	private void moveToHead(Entry node) {
+	private void moveToHead(Entry<Object, Object> node) {
 		if (node == first)
 			return;
 		// remove node
