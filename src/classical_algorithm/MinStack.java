@@ -3,6 +3,7 @@ package classical_algorithm;
 import tools.Entry;
 
 public class MinStack {
+	// 常规解法采用 一个栈 + 一个辅助栈
 	// 采用类似HashMap的数据结构，数组的头一个元素保存当前最小值
 	// 对应散列出来的元素都是大于当前最小值的元素
 	// 且散列时，元素添加在当前最小值元素的后方而非最后方，方便查找
