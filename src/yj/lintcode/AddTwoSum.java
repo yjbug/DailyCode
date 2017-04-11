@@ -1,5 +1,7 @@
 package yj.lintcode;
 
+import tools.ListNode;
+
 /**
  * Definition for singly-linked list.
  * public class ListNode {

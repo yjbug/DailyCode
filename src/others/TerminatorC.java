@@ -1,9 +1,14 @@
 package others;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
-//两个子弹 ， 车辆有序的从道路经过
-//最多能打到多少辆车
+
+// 两个子弹 ， 车辆有序的从道路经过
+// 最多能打到多少辆车
+// 确定可能的射击点，分别是所有车辆的车尾
+// 缓存可能的射击点对应能击破的车辆
+// F[i] + F[j] - count    //count为同时被i,j射击的车辆数
 public class TerminatorC {
 	public static void main(String[] args) {
 		@SuppressWarnings("resource")

@@ -14,6 +14,7 @@ public class Node<T> {
 
 	@SuppressWarnings("unchecked")
 	public final static Node<Integer> NODES[] = new Node[6];
+	@SuppressWarnings("unchecked")
 	public final static Node<Integer> NODES2[] = new Node[6];
 	static {
 		for (int i = 0; i < NODES.length; i++) {

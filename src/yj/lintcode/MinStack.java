@@ -1,4 +1,4 @@
-package design_pattern.strategy;
+package yj.lintcode;
 
 import tools.Entry;
 
