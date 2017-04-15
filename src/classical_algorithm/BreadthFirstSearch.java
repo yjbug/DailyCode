@@ -6,7 +6,7 @@ import java.util.Queue;
 import tools.Node;
 
 // BFS  不需要递归，用队列实现   Queue q = new LinkedList()
-// 1. parameter: 节点数组   ， 队列， 访问标识数组
+// 1. parameter: 节点数组   ；内部参数： 队列， 访问标识数组
 // 2. size为0，加入一个未访问的节点， 且访问标识设置TRUE
 // 3. size不为0时， poll当前队首节点 ， 获取所有下一跳节点
 // 4. 顺序处理下一跳节点，如果未被访问，则加入q并且访问标识设置TRUE

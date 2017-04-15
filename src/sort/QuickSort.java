@@ -2,7 +2,9 @@ package sort;
 
 import tools.ArrayUtils;
 
-//quick sort with lots of duplicate value
+// quick sort with lots of duplicate value
+// 平均时间复杂度 O(n * log n)
+// 最坏时间复杂度O（n^2)
 public class QuickSort {
 	public static int CHANGE = 6;
 
@@ -19,7 +21,7 @@ public class QuickSort {
 	public static void sort(int[] A, int low, int high) {
 		int start = low;
 		int end = high;
-		int mid = low + (high - low) >> 1; // 防止大数溢出
+		int mid = low + ((high - low) >> 1); // 防止大数溢出
 		int key = pivotSelect(A, low, mid, high);
 		System.out.println("key:" + key);
 		int pstart = start;
@@ -27,7 +29,7 @@ public class QuickSort {
 		while (end > start) {
 			// 从后往前比较
 			while (end > start && A[end] >= key) { // 如果没有比关键值小的，比较下一个，直到有比关键值小的交换位置，然后又从前往后比较
-				// 将不重复于key的值往右端并齐
+				// 将不重复于key的值往右端并齐，重复于key的值暂时忽略
 				if (A[end] != key) {
 					A[pend--] = A[end];
 				}
