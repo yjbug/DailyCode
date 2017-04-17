@@ -19,6 +19,9 @@ public class QuickSort {
 	}
 
 	public static void sort(int[] A, int low, int high) {
+		if (A==null||high <= low) {
+			return;
+		}
 		int start = low;
 		int end = high;
 		int mid = low + ((high - low) >> 1); // ·ÀÖ¹´óÊýÒç³ö
