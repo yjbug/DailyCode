@@ -1,28 +1,19 @@
-package test;
+package tools;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
-import javax.print.attribute.standard.PrinterMessageFromOperator;
-import javax.tools.FileObject;
-
-import com.sun.org.apache.bcel.internal.generic.FNEG;
-
-import tools.FileOperation;
-
 public class RefactorReadme {
-	
-	private static String readme="/E:/YJGit/LintCode/README.md";
+
+	private static String readme = "/E:/YJGit/LintCode/README.md";
+	private static int count;
+	private static int lines;
 
 	public static void main(String[] args) {
 
-		String fileName = RefactorReadme.class.getResource("/").getFile();
-		fileName = fileName.substring(0, fileName.length() - 4);
+		String root = "E:\\YJGit\\LintCode\\";
+		String start = "src";
+		countFiles(root, start);
 		System.out.println(readme);
 		String tmp = readme;
 		FileOperation.resetTxtFile(tmp);
@@ -32,21 +23,37 @@ public class RefactorReadme {
 		FileOperation.writeTxtFile("### 主要包含：常用经典算法的实现、LeetCode题解、LintCode题解、Java设计模式", tmp);
 		FileOperation.writeTxtFile("### 项目开始积累代码的时间：2017年4月", tmp);
 		FileOperation.writeTxtFile("", tmp);
-		FileOperation.writeTxtFile("代码目录结构:", tmp);
+		FileOperation.writeTxtFile("### 文件数:" + count + "　　　　" + "代码行数:" + lines, tmp);
+		FileOperation.writeTxtFile("### 代码目录结构:", tmp);
 		FileOperation.writeTxtFile("", tmp);
 
-		String filesName = "E:\\YJGit\\LintCode\\src";
-		printFiles("    ", "E:\\YJGit\\LintCode\\", "src");
+		printFiles("    ", root, start);
 
+	}
+
+	public static void countFiles(String pre, String filesName) {
+		File files = new File(pre + filesName);
+		if (!files.isDirectory()) {
+			count++;
+			ArrayList<String> list = FileOperation.readTxtFile(pre + filesName, null);
+			for (String s : list) {
+				if (!s.equals("")) {
+					lines++;
+				}
+			}
+		} else {
+			File file[] = files.listFiles();
+			for (File f : file) {
+				countFiles(pre + filesName + "\\", f.getName());
+			}
+		}
 	}
 
 	public static void printFiles(String tab, String pre, String filesName) {
 		File files = new File(pre + filesName);
-		ArrayList<String> filelist = new ArrayList<String>();
 		if (files.isDirectory()) {
 			File file[] = files.listFiles();
 			for (File f : file) {
-				filelist.add(f.getName());
 				System.out.println(tab + f.getName());
 				FileOperation.writeTxtFile(tab + f.getName(), readme);
 				printFiles(tab + "    ", pre + filesName + "\\", f.getName());

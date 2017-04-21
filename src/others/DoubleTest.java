@@ -1,12 +1,16 @@
-package test;
+package others;
 
 import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Queue;
 
-import tools.TreeNode;
+// 3.0/0.0 = Infinity
+// 0.0/0.0 = NaN
+// NaN - NaN = NaN
+// Infinity - Infinity = NaN
+// Infinity == Infinity is true  <<============
+// Infinity1 == Infinity2 is true
+// NaN == NaN is false
 
-public class Test {
+public class DoubleTest {
 	public static void main(String[] args) {
 		double inf = 3 / 0.0;
 		double nan = 0.0 / 0;
@@ -26,7 +30,11 @@ public class Test {
 		HashMap<Double, Integer> map = new HashMap<>();
 		map.put(nan, 10086);
 		System.out.println(map.containsKey(nan));
-		map.put(inf,10010);
+		map.put(inf, 10010);
 		System.out.println(map.containsKey(inf));
+
+		double one = 1.0;
+		System.out.println("1.0 == 1 is " + (one == 1));
+
 	}
 }

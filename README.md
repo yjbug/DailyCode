@@ -4,7 +4,8 @@
 ### 主要包含：常用经典算法的实现、LeetCode题解、LintCode题解、Java设计模式
 ### 项目开始积累代码的时间：2017年4月
 
-代码目录结构:
+### 文件数:68　　　　代码行数:3023
+### 代码目录结构:
 
     classical_algorithm
         BestTimetoBuyandSellStock.java
@@ -35,6 +36,7 @@
             README.md
     others
         CompleteBinaryTree.java
+        DoubleTest.java
         ListDeleteElement.java
         RandomChoice.java
         StringEqualTest.java
@@ -45,8 +47,8 @@
         InsertSort.java
         MergeSort.java
         QuickSort.java
+        SortList.java
     test
-        RefactorReadme.java
         Test.java
     tools
         ArrayUtils.java
@@ -54,6 +56,8 @@
         FileOperation.java
         ListNode.java
         Node.java
+        Point.java
+        RefactorReadme.java
         TreeNode.java
     yj
         lintcode
@@ -62,15 +66,22 @@
             FlattenBinaryTreetoLinkedList.java
             LevelOrder.java
             LinkedListCycle.java
+            LongestCommonPrefix.java
             LongestPalindromicSubstring.java
             LongestSubstringWithoutRepeatingCharacters.java
             MajorityNumber.java
             MaximumDepthOfBinaryTree.java
+            MaxPointsonaLine.java
             MedianOfTwoSortedArrays.java
             MinStack.java
+            PlusOne.java
             ReverseInteger.java
             ReverseLinkedList.java
             ReverseWordsInAString.java
+            RomanAndInteger.java
             SingleNumber.java
+            SortList.java
             StringToIntegerII.java
+            ThreeSum.java
             TwoSum.java
+            ValidParentheses.java
