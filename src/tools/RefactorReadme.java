@@ -2,32 +2,33 @@ package tools;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 public class RefactorReadme {
 
-	private static String readme = "/E:/YJGit/LintCode/README.md";
+	private final static String readme;
 	private static int count;
 	private static int lines;
+	static {
+		readme = System.getProperty("user.dir") + "\\README.md";
+	}
 
 	public static void main(String[] args) {
-
-		String root = "E:\\YJGit\\LintCode\\";
-		String start = "src";
-		countFiles(root, start);
-		System.out.println(readme);
-		String tmp = readme;
-		FileOperation.resetTxtFile(tmp);
-		FileOperation.writeTxtFile("# DailyCode", tmp);
-		FileOperation.writeTxtFile("", tmp);
-		FileOperation.writeTxtFile("### 该项目保存平时随手写下的代码以及一些想法", tmp);
-		FileOperation.writeTxtFile("### 主要包含：常用经典算法的实现、LeetCode题解、LintCode题解、Java设计模式", tmp);
-		FileOperation.writeTxtFile("### 项目开始积累代码的时间：2017年4月", tmp);
-		FileOperation.writeTxtFile("", tmp);
-		FileOperation.writeTxtFile("### 文件数:" + count + "　　　　" + "代码行数:" + lines, tmp);
-		FileOperation.writeTxtFile("### 代码目录结构:", tmp);
-		FileOperation.writeTxtFile("", tmp);
-
-		printFiles("    ", root, start);
+		// 获取当前工程路径
+		String root = System.getProperty("user.dir") + "\\";
+		String file = "src";
+		countFiles(root, file);
+		FileOperation.resetTxtFile(readme);
+		FileOperation.writeTxtFile("# DailyCode", readme);
+		FileOperation.writeTxtFile("", readme);
+		FileOperation.writeTxtFile("### 该项目保存平时随手写下的代码以及一些想法", readme);
+		FileOperation.writeTxtFile("### 主要包含：常用经典算法的实现、LeetCode题解、LintCode题解、Java设计模式", readme);
+		FileOperation.writeTxtFile("### 项目开始积累代码的时间：2017年4月", readme);
+		FileOperation.writeTxtFile("", readme);
+		FileOperation.writeTxtFile("### 文件数:" + count + "　　　　" + "代码行数:" + lines, readme);
+		FileOperation.writeTxtFile("### 代码目录结构:", readme);
+		FileOperation.writeTxtFile("", readme);
+		printFiles("    ", root, file);
 
 	}
 
@@ -37,7 +38,9 @@ public class RefactorReadme {
 			count++;
 			ArrayList<String> list = FileOperation.readTxtFile(pre + filesName, null);
 			for (String s : list) {
-				if (!s.equals("")) {
+				// 用StringTokenizer处理连续空格或者Tab键
+				StringTokenizer st = new StringTokenizer(s);
+				if (st.hasMoreTokens()) {
 					lines++;
 				}
 			}
