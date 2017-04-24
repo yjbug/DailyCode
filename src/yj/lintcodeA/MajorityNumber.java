@@ -1,4 +1,4 @@
-package yj.lintcode;
+package yj.lintcodeA;
 
 import java.util.ArrayList;
 // 重复次数超过一半的数

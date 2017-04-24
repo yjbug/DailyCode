@@ -1,4 +1,4 @@
-package yj.lintcode;
+package yj.lintcodeA;
 
 public class StringToIntegerII {
 	public int atoi(String str) {

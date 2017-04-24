@@ -1,4 +1,4 @@
-package yj.lintcode;
+package yj.lintcodeA;
 
 import java.util.HashMap;
 // 罗马数字与普通数字的相互转换

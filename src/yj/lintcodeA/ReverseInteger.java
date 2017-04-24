@@ -1,4 +1,4 @@
-package yj.lintcode;
+package yj.lintcodeA;
 
 public class ReverseInteger {
 	public int reverseInteger(int n) {

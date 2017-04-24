@@ -1,4 +1,4 @@
-package yj.lintcode;
+package yj.lintcodeA;
 
 import tools.ListNode;
 

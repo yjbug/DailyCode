@@ -41,7 +41,9 @@ public class RefactorReadme {
 				// 用StringTokenizer处理连续空格或者Tab键
 				StringTokenizer st = new StringTokenizer(s);
 				if (st.hasMoreTokens()) {
-					lines++;
+					if (!(s.contains("import") || s.contains("package"))) {
+						lines++;
+					}
 				}
 			}
 		} else {
@@ -57,7 +59,6 @@ public class RefactorReadme {
 		if (files.isDirectory()) {
 			File file[] = files.listFiles();
 			for (File f : file) {
-				System.out.println(tab + f.getName());
 				FileOperation.writeTxtFile(tab + f.getName(), readme);
 				printFiles(tab + "    ", pre + filesName + "\\", f.getName());
 			}
