@@ -4,7 +4,7 @@
 ### 主要包含：常用经典算法的实现、LeetCode题解、LintCode题解、Java设计模式
 ### 项目开始积累代码的时间：2017年4月
 
-### 文件数:68　　　　代码行数:2819
+### 文件数:76　　　　代码行数:3044
 ### 代码目录结构:
 
     classical_algorithm
@@ -60,7 +60,7 @@
         RefactorReadme.java
         TreeNode.java
     yj
-        lintcode
+        lintcodeA
             AddTwoSum.java
             BestTimetoBuyandSellStock.java
             FlattenBinaryTreetoLinkedList.java
@@ -85,3 +85,12 @@
             ThreeSum.java
             TwoSum.java
             ValidParentheses.java
+        lintcodeB
+            ClimbingStairs.java
+            CountAndSay.java
+            InvertBinaryTree.java
+            MaximumSubarray.java
+            MergeTwoSortedLists.java
+            PowXN.java
+            RegularExpressionMatching.java
+        README.md

@@ -11,6 +11,10 @@ public class TreeNode {
 	
 	
 	//  5,4,6,3,6,5,7,3,null,2
+	//  		   5
+	//		  4         6
+	//	   3     6    5   7
+	//   3     2
 	public static TreeNode getTree(){
 		TreeNode root = new TreeNode(5);
 		root.left = new TreeNode(4);
