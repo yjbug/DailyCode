@@ -35,6 +35,17 @@ public class DoubleTest {
 
 		double one = 1.0;
 		System.out.println("1.0 == 1 is " + (one == 1));
+		
+		
+		
+		// float小数部分最多7位有效数字，精度保证6位
+		// double小数部分最多16位有效数字，精度保证15位
+		
+		System.out.println("\n=============精度测试===============");
+		System.out.println(Math.abs(1.3f-(8.3f-7.0f))<1e-6);
+		System.out.println(Math.abs(1.3f-(8.3f-7.0f))<1e-7);
+		System.out.println(Math.abs(1.3-(8.3-7.0))<1e-15);
+		System.out.println(Math.abs(1.3-(8.3-7.0))<1e-16);
 
 	}
 }

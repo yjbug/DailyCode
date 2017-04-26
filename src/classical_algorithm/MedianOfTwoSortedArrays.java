@@ -51,35 +51,34 @@ public class MedianOfTwoSortedArrays {
         }
         
         //now we get k = 0; the next element is we need
-        int res1 = 0;
+        int res = 0;
         if(curA==lenA){
-            res1 = B[curB++];
+            res = B[curB++];
         }else if(curB==lenB){
-            res1 = A[curA++];
+            res = A[curA++];
         }else{
             if(A[curA]<B[curB]){
-                res1 = A[curA++];
+                res = A[curA++];
             }else{
-                res1 = B[curB++];
+                res = B[curB++];
             }
         }
 
         if(((lenA+lenB)&1)==1){ //priority, == is higher than &
-            return res1;
+            return res;
         }
         
-        int res2 = 0;
         if(curA==lenA){
-            res2 = B[curB++];
+            res += B[curB++];
         }else if(curB==lenB){
-            res2 = A[curA++];
+            res += A[curA++];
         }else{
             if(A[curA]<B[curB]){
-                res2 = A[curA++];
+                res  += A[curA++];
             }else{
-                res2 = B[curB++];
+                res += B[curB++];
             }
         }
-        return (res1+res2)/2.0 ;
+        return res/2.0 ;
     }
 }
